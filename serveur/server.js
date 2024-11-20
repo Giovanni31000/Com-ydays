@@ -6,7 +6,7 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-    if (req.url === '/') {
+    if (req.url === '/' || req.url === '/index.html') {
         fs.readFile(path.join(__dirname, '../web/index.html'), (err, data) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/plain' });
