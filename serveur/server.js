@@ -46,6 +46,23 @@ const server = http.createServer((req, res) => {
                 res.end(data);
             }
         });
+    } else if (req.url.startsWith('/style/')) {
+        const filePath = path.join(__dirname, '..', req.url);
+        fs.readFile(filePath, (err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('500 - Internal Server Error');
+            } else {
+                const ext = path.extname(filePath);
+                const mimeType = {
+                    '.css': 'text/css',
+                    '.jpg': 'image/jpeg',
+                    '.png': 'image/png',
+                }[ext] || 'application/octet-stream';
+                res.writeHead(200, { 'Content-Type': mimeType });
+                res.end(data);
+            }
+        });
     } else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('404 - Not Found');

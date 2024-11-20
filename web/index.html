@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Com'YDays - Accueil</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <header>
+        <h1>Com'YDays</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="/event.html">Événements</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="search">
+            <h2>Rechercher un Événement</h2>
+            <input type="text" id="searchInput" placeholder="Rechercher...">
+            <button onclick="searchEvent()">Rechercher</button>
+        </section>
+        <section class="publish">
+            <h2>Publier un Nouvel Événement</h2>
+            <form id="publishForm">
+                <label for="eventName">Nom de l'Événement:</label>
+                <input type="text" id="eventName" name="eventName" required>
+                <label for="eventDate">Date:</label>
+                <input type="date" id="eventDate" name="eventDate" required>
+                <label for="eventDescription">Description:</label>
+                <textarea id="eventDescription" name="eventDescription" required></textarea>
+                <button type="submit">Publier</button>
+            </form>
+        </section>
+        <section class="modify">
+            <h2>Modifier un Événement</h2>
+            <form id="modifyForm">
+                <label for="modifyEventId">ID de l'Événement:</label>
+                <input type="text" id="modifyEventId" name="modifyEventId" required>
+                <label for="modifyEventName">Nom de l'Événement:</label>
+                <input type="text" id="modifyEventName" name="modifyEventName">
+                <label for="modifyEventDate">Date:</label>
+                <input type="date" id="modifyEventDate" name="modifyEventDate">
+                <label for="modifyEventDescription">Description:</label>
+                <textarea id="modifyEventDescription" name="modifyEventDescription"></textarea>
+                <button type="submit">Modifier</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Com'YDays. Tous droits réservés.</p>
+    </footer>
+    <script>
+        function searchEvent() {
+            const query = document.getElementById('searchInput').value;
+            alert('Recherche pour: ' + query);
+            // Ajoutez ici la logique de recherche
+        }
+
+        document.getElementById('publishForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Événement publié!');
+            // Ajoutez ici la logique de publication
+        });
+
+        document.getElementById('modifyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Événement modifié!');
+            // Ajoutez ici la logique de modification
+        });
+    </script>
+</body>
+</html>
